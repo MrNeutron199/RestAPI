@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 app.get('/chatbot', (req, res) => {
 	res.sendFile(__dirname + '/bot.html');
 });
-app.post('/api', (req, res) => {
+app.get('/api', (req, res) => {
 	const msg = req.headers.message;
 	console.log('Loaded Server.js ' + msg);
 	res.send(msg ? msg : 'Failed');

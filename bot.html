@@ -19,7 +19,7 @@
 					: document.getElementById('enteredMsg');
 				const fetch = require('node-fetch');
 				fetch('http://127.0.0.1:5600/api', {
-					method: 'POST',
+					method: 'GET',
 					headers: { message: msg },
 				})
 					.then((data) => data.json())
