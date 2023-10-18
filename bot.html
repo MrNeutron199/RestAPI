@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chatbot</title>
+	</head>
+	<body>
+		<form>
+			<label for="Name">Enter A Message</label><br />
+			<input type="text" name="name" id="enteredMsg" /> <br />
+			<input type="submit" value="Submit" onclick="first(this.form)" />
+		</form>
+		<script src="http://localhost:3002/require-browser.js"></script>
+		<script>
+			function first(form) {
+				let msg = form.enteredMsg.value
+					? form.enteredMsg.value
+					: document.getElementById('enteredMsg');
+				const fetch = require('node-fetch');
+				fetch('http://127.0.0.1:5600/api', {
+					method: GET,
+					headers: { message: msg },
+				}).catch((err) => console.error(err));
+			}
+		</script>
+	</body>
+</html>
